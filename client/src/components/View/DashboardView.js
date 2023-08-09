@@ -122,7 +122,7 @@ const styles = theme => {
 			backgroundColor: dark ? 'rgb(104, 247, 235)' : '#858aa6'
 		},
 		block: {
-			color: dark ? '#1f1a33' : '#004d6b',
+			color: dark ? '#1f1a33' : '#179a6b',
 			backgroundColor: dark ? 'rgb(106, 156, 248)' : '#b9d6e1'
 		},
 		chaincode: {

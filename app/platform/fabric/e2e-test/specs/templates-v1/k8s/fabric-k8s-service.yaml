@@ -12,37 +12,37 @@
 kind: Service
 apiVersion: v1
 metadata:
-  labels:
-    k8s-app: #@ "ca{}-{}".format(j, organization.name)
-  name: #@ "ca{}-{}".format(j, organization.name)
+ labels:
+  k8s-app: #@ "ca{}-{}".format(j, organization.name)
+ name: #@ "ca{}-{}".format(j, organization.name)
 spec:
-  selector:
-    k8s-app: #@ "ca{}-{}".format(j, organization.name)
-  type: #@ config.k8s.serviceType
-  ports:
-    - name: port1
-      port: 7054
+ selector:
+  k8s-app: #@ "ca{}-{}".format(j, organization.name)
+ type: #@ config.k8s.serviceType
+ ports:
+  - name: port1
+    port: 7054
 #@   end
 #@   for j in range(0, organization.numPeers):
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  labels:
-    k8s-app: #@ "peer{}-{}".format(j, organization.name)
-  name: #@ "peer{}-{}".format(j, organization.name)
+ labels:
+  k8s-app: #@ "peer{}-{}".format(j, organization.name)
+ name: #@ "peer{}-{}".format(j, organization.name)
 spec:
-  selector:
-    k8s-app: #@ "peer{}-{}".format(j, organization.name)
-  type: #@ config.k8s.serviceType
-  ports:
-    - name: port1
-      port: #@ peerUniquePort
-#@    if config.k8s.serviceType == "NodePort":
-      nodePort: #@ peerUniquePort
-#@    end
-    - name: port2
-      port: 9443
+ selector:
+  k8s-app: #@ "peer{}-{}".format(j, organization.name)
+ type: #@ config.k8s.serviceType
+ ports:
+  - name: port1
+    port: #@ peerUniquePort
+    #@    if config.k8s.serviceType == "NodePort":
+    nodePort: #@ peerUniquePort
+  #@    end
+  - name: port2
+    port: 9443
 #@   peerUniquePort += 1
 #@ end
 #@ end
@@ -56,37 +56,37 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  labels:
-    k8s-app: #@ "ca{}-{}".format(i, organization.name)
-  name: #@ "ca{}-{}".format(i, organization.name)
+ labels:
+  k8s-app: #@ "ca{}-{}".format(i, organization.name)
+ name: #@ "ca{}-{}".format(i, organization.name)
 spec:
-  selector:
-    k8s-app: #@ "ca{}-{}".format(i, organization.name)
-  type: #@ config.k8s.serviceType
-  ports:
-    - name: port1
-      port: 7054
+ selector:
+  k8s-app: #@ "ca{}-{}".format(i, organization.name)
+ type: #@ config.k8s.serviceType
+ ports:
+  - name: port1
+    port: 7054
 #@ end
 #@ for j in range(0, numOderers):
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  labels:
-    k8s-app: #@ "orderer{}-{}".format(j, organization.name)
-  name: #@ "orderer{}-{}".format(j, organization.name)
+ labels:
+  k8s-app: #@ "orderer{}-{}".format(j, organization.name)
+ name: #@ "orderer{}-{}".format(j, organization.name)
 spec:
-  selector:
-    k8s-app: #@ "orderer{}-{}".format(j, organization.name)
-  type: #@ config.k8s.serviceType
-  ports:
-    - name: port1
-      port: #@ ordererUniquePort
-#@    if config.k8s.serviceType == "NodePort":
-      nodePort: #@ ordererUniquePort
-#@    end
-    - name: port2
-      port: 8443
+ selector:
+  k8s-app: #@ "orderer{}-{}".format(j, organization.name)
+ type: #@ config.k8s.serviceType
+ ports:
+  - name: port1
+    port: #@ ordererUniquePort
+    #@    if config.k8s.serviceType == "NodePort":
+    nodePort: #@ ordererUniquePort
+  #@    end
+  - name: port2
+    port: 8443
 #@    ordererUniquePort += 1
 #@ end
 #@ end
@@ -97,35 +97,35 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  labels:
-    k8s-app: #@ "kafka{}".format(i)
-  name: #@ "kafka{}".format(i)
+ labels:
+  k8s-app: #@ "kafka{}".format(i)
+ name: #@ "kafka{}".format(i)
 spec:
-  selector:
-    k8s-app: #@ "kafka{}".format(i)
-  ports:
-    - name: port1
-      port: 9092
-    - name: port2
-      port: 9093
+ selector:
+  k8s-app: #@ "kafka{}".format(i)
+ ports:
+  - name: port1
+    port: 9092
+  - name: port2
+    port: 9093
 #@   end
 #@   for j in range(0, config.kafka.numZookeepers):
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  labels:
-    k8s-app: #@ "zookeeper{}".format(j)
-  name: #@ "zookeeper{}".format(j)
+ labels:
+  k8s-app: #@ "zookeeper{}".format(j)
+ name: #@ "zookeeper{}".format(j)
 spec:
-  selector:
-    k8s-app: #@ "zookeeper{}".format(j)
-  ports:
-    - name: port1
-      port: 2888
-    - name: port2
-      port: 3888
-    - name: port3
-      port: 2181
+ selector:
+  k8s-app: #@ "zookeeper{}".format(j)
+ ports:
+  - name: port1
+    port: 2888
+  - name: port2
+    port: 3888
+  - name: port3
+    port: 2181
 #@   end
 #@ end

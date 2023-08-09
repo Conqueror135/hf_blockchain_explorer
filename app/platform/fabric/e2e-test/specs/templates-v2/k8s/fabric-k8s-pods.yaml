@@ -371,10 +371,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: #@ "zookeeper{}".format(i)
-  labels:
-    k8s-app: #@ "zookeeper{}".format(i)
-    type: zookeeper
+ name: #@ "zookeeper{}".format(i)
+ labels:
+  k8s-app: #@ "zookeeper{}".format(i)
+  type: zookeeper
 spec: #@ kafkaSpec("zookeeper{}".format(i), i, 0, "zookeeper", config.kafka.numZookeepers, config)
 #@   end
 #@   for j in range(0, config.kafka.numKafka):
@@ -382,10 +382,10 @@ spec: #@ kafkaSpec("zookeeper{}".format(i), i, 0, "zookeeper", config.kafka.numZ
 apiVersion: v1
 kind: Pod
 metadata:
-  name: #@ "kafka{}".format(j)
-  labels:
-    k8s-app: #@ "kafka{}".format(j)
-    type: kafka
+ name: #@ "kafka{}".format(j)
+ labels:
+  k8s-app: #@ "kafka{}".format(j)
+  type: kafka
 spec: #@ kafkaSpec("kafka{}".format(j), j, config.kafka.numKafkaReplications, "kafka", config.kafka.numZookeepers, config)
 #@   end
 #@ end
@@ -398,7 +398,7 @@ spec: #@ kafkaSpec("kafka{}".format(j), j, config.kafka.numKafkaReplications, "k
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: #@ "ca{}-{}".format(j, organization.name)
+ name: #@ "ca{}-{}".format(j, organization.name)
 spec: #@ spec("ca{}-{}".format(j, organization.name), organization.name, "ca", data.values, organization.mspId, "")
 #@   end
 #@   for j in range(0, organization.numPeers):
@@ -406,7 +406,7 @@ spec: #@ spec("ca{}-{}".format(j, organization.name), organization.name, "ca", d
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: #@ "peer{}-{}".format(j, organization.name)
+ name: #@ "peer{}-{}".format(j, organization.name)
 spec: #@ spec("peer{}-{}".format(j, organization.name), organization.name, "peer", config, organization.mspId, peerUniquePort)
 #@   peerUniquePort += 1
 #@   end
@@ -421,7 +421,7 @@ spec: #@ spec("peer{}-{}".format(j, organization.name), organization.name, "peer
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: #@ "ca{}-{}".format(j, organization.name)
+ name: #@ "ca{}-{}".format(j, organization.name)
 spec: #@ spec("ca{}-{}".format(j, organization.name), organization.name, "ca", data.values, organization.mspId, "")
 #@   end
 #@   numOderers = organization.numOderers
@@ -430,7 +430,7 @@ spec: #@ spec("ca{}-{}".format(j, organization.name), organization.name, "ca", d
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: #@ "orderer{}-{}".format(j, organization.name)
+ name: #@ "orderer{}-{}".format(j, organization.name)
 spec: #@ spec("orderer{}-{}".format(j, organization.name), organization.name, "orderer", config, organization.mspId, ordererUniquePort)
 #@   ordererUniquePort += 1
 #@   end

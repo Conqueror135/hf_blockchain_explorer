@@ -1,0 +1,58 @@
+{
+	"name": "traceability-network",
+	"version": "1.0.0",
+	"license": "Apache-2.0",
+	"client": {
+		"tlsEnable": true,
+		"adminCredential": {
+			"id": "exploreradmin",
+			"password": "exploreradminpw"
+		},
+		"enableAuthentication": false,
+		"organization": "Thinklabs",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				},
+				"orderer": "300"
+			}
+		}
+	},
+	"channels": {
+		"seekorigin": {
+			"peers": {
+				"peer1.Thinklabs.com.vn": {}
+			},
+			"connection": {
+				"timeout": {
+					"peer": {
+						"endorser": "6000",
+						"eventHub": "6000",
+						"eventReg": "6000"
+					}
+				}
+			}
+		}
+	},
+	"organizations": {
+		"Thinklabs": {
+			"mspid": "Thinklabs",
+			"adminPrivateKey": {
+				"path": "/home/conqueror/Documents/traceability/traceability-api/network/organizations/peerOrganizations/thinklabs.com.vn/users/admin/msp/keystore/key.pem"
+			},
+			"peers": ["peer1.Thinklabs.com.vn"],
+			"signedCert": {
+				"path": "/home/conqueror/Documents/traceability/traceability-api/network/organizations/peerOrganizations/thinklabs.com.vn/users/admin/msp/signcerts/cert.pem"
+			}
+		}
+	},
+	"peers": {
+		"peer1.Thinklabs.com.vn": {
+			"tlsCACerts": {
+				"path": "/home/conqueror/Documents/traceability/traceability-api/network/organizations/peerOrganizations/thinklabs.com.vn/users/admin/msp/tlscacerts/ca-cert.pem"
+			},
+			"url": "grpcs://localhost:6666"
+		}
+	}
+}

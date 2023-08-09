@@ -120,19 +120,19 @@
 
 #@ config = data.values
 Profiles:
-  testorgschannel:
-    Policies: #@ policies("channel")
-    Capabilities: #@ config.channelCapabilities
-    Consortium: FabricConsortium
-    Application:
-      Organizations: #@ organizations(config, "peer")
-      Policies: #@ policies("peer")
-      Capabilities:  #@ config.applicationCapabilities
-    Orderer: #@ orderer(config)
-  testOrgsOrdererGenesis:
-    Policies: #@ policies("channel")
-    Capabilities: #@ config.channelCapabilities
-    Orderer: #@ orderer(config)
-    Consortiums:
-      FabricConsortium:
-        Organizations: #@ organizations(config, "peer")
+ testorgschannel:
+  Policies: #@ policies("channel")
+  Capabilities: #@ config.channelCapabilities
+  Consortium: FabricConsortium
+  Application:
+   Organizations: #@ organizations(config, "peer")
+   Policies: #@ policies("peer")
+   Capabilities: #@ config.applicationCapabilities
+  Orderer: #@ orderer(config)
+ testOrgsOrdererGenesis:
+  Policies: #@ policies("channel")
+  Capabilities: #@ config.channelCapabilities
+  Orderer: #@ orderer(config)
+  Consortiums:
+   FabricConsortium:
+    Organizations: #@ organizations(config, "peer")

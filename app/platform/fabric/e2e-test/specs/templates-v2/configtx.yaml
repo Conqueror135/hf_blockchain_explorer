@@ -19,7 +19,7 @@
 #@     else:
 #@       endorsement = {"Type": "Signature", "Rule": "OR('{}.member')".format(mspId)}
 #@     end
-#@     output = {"Readers": readwriteset, "Writers": readwriteset, "Admins": admins, "Endorsement": endorsement} 
+#@     output = {"Readers": readwriteset, "Writers": readwriteset, "Admins": admins, "Endorsement": endorsement}
 #@   end
 #@   return output
 #@ end
@@ -146,19 +146,19 @@
 #@ config = data.values
 
 Profiles:
-  testorgschannel:
-    Policies: #@ policies("channel", "")
-    Capabilities: #@ capabilities(config.channelCapabilities)
-    Consortium: FabricConsortium
-    Application:
-      Organizations: #@ organizations(config, "peer")
-      Policies: #@ policies("peer", config.applicationCapabilities)
-      Capabilities:  #@ capabilities(config.applicationCapabilities)
-    Orderer: #@ orderer(config)
-  testOrgsOrdererGenesis:
-    Policies: #@ policies("channel", "")
-    Capabilities: #@ capabilities(config.channelCapabilities)
-    Orderer: #@ orderer(config)
-    Consortiums:
-      FabricConsortium:
-        Organizations: #@ organizations(config, "peer")
+ testorgschannel:
+  Policies: #@ policies("channel", "")
+  Capabilities: #@ capabilities(config.channelCapabilities)
+  Consortium: FabricConsortium
+  Application:
+   Organizations: #@ organizations(config, "peer")
+   Policies: #@ policies("peer", config.applicationCapabilities)
+   Capabilities: #@ capabilities(config.applicationCapabilities)
+  Orderer: #@ orderer(config)
+ testOrgsOrdererGenesis:
+  Policies: #@ policies("channel", "")
+  Capabilities: #@ capabilities(config.channelCapabilities)
+  Orderer: #@ orderer(config)
+  Consortiums:
+   FabricConsortium:
+    Organizations: #@ organizations(config, "peer")

@@ -52,7 +52,7 @@ const styles = theme => {
 			color: theme.palette.grey[500]
 		},
 		adminIcon: {
-			color: dark ? '#1f1a33' : '#004d6b'
+			color: dark ? '#1f1a33' : '#179a6b'
 		},
 		userIcon: {
 			color: dark ? '#79536d' : '#407b20'
