@@ -1,5 +1,5 @@
 {
-	"name": "test-network",
+	"name": "traceability-network",
 	"version": "1.0.0",
 	"license": "Apache-2.0",
 	"client": {
@@ -8,8 +8,8 @@
 			"id": "exploreradmin",
 			"password": "exploreradminpw"
 		},
-		"enableAuthentication": true,
-		"organization": "Org1MSP",
+		"enableAuthentication": false,
+		"organization": "Thinklabs",
 		"connection": {
 			"timeout": {
 				"peer": {
@@ -20,9 +20,9 @@
 		}
 	},
 	"channels": {
-		"mychannel": {
+		"seekorigin": {
 			"peers": {
-				"peer0.org1.example.com": {}
+				"peer1.Thinklabs.com.vn": {}
 			},
 			"connection": {
 				"timeout": {
@@ -36,26 +36,23 @@
 		}
 	},
 	"organizations": {
-		"Org1MSP": {
-			"mspid": "Org1MSP",
+		"Thinklabs": {
+			"mspid": "Thinklabs",
 			"adminPrivateKey": {
-				"path": "/fabric-path/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/priv_sk"
+				"path": "/home/conqueror/Documents/traceability/traceability-api/network/organizations/peerOrganizations/thinklabs.com.vn/users/admin/msp/keystore/key.pem"
 			},
-			"peers": ["peer0.org1.example.com"],
+			"peers": ["peer1.Thinklabs.com.vn"],
 			"signedCert": {
-				"path": "/fabric-path/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem"
+				"path": "/home/conqueror/Documents/traceability/traceability-api/network/organizations/peerOrganizations/thinklabs.com.vn/users/admin/msp/signcerts/cert.pem"
 			}
 		}
 	},
 	"peers": {
-		"peer0.org1.example.com": {
+		"peer1.Thinklabs.com.vn": {
 			"tlsCACerts": {
-				"path": "/fabric-path/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+				"path": "/home/conqueror/Documents/traceability/traceability-api/network/organizations/peerOrganizations/thinklabs.com.vn/users/admin/msp/tlscacerts/ca-cert.pem"
 			},
-			"url": "grpcs://localhost:7051",
-			"grpcOptions": {
-				"ssl-target-name-override": "peer0.org1.example.com"
-			}
+			"url": "grpcs://localhost:6666"
 		}
 	}
 }

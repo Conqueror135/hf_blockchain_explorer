@@ -1,7 +1,7 @@
 {
 	"network-configs": {
 		"test-network": {
-			"name": "Test Network",
+			"name": "Traceability",
 			"profile": "./connection-profile/test-network.json"
 		}
 	},

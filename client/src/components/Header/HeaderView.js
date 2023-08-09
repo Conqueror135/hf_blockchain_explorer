@@ -29,7 +29,7 @@ import Dialog from '@material-ui/core/Dialog';
 import Loader from 'react-loader-spinner';
 import Select from '../Styled/Select';
 import NotificationsPanel from '../Panels/NotificationsPanel';
-import Logo from '../../static/images/Explorer_Logo.svg';
+import Logo from '../../static/images/Logo.svg';
 import AdminPanel from '../Panels/AdminPanel';
 import { chartOperations, chartSelectors } from '../../state/redux/charts';
 import { tableOperations, tableSelectors } from '../../state/redux/tables';
@@ -101,7 +101,7 @@ const styles = theme => {
 			}
 		},
 		navbarHeader: {
-			backgroundColor: '#e8e8e8',
+			backgroundColor: '#FFFFFF',
 			...darkNavbar
 		},
 		tab: {
@@ -119,7 +119,7 @@ const styles = theme => {
 		},
 		activeTab: {
 			color: '#ffffff',
-			backgroundColor: dark ? '#453e68' : '#58c5c2',
+			backgroundColor: dark ? '#453e68' : '#179a6b',
 			height: 60,
 			marginTop: 20,
 			padding: 10,
@@ -226,7 +226,7 @@ const styles = theme => {
 			cursor: 'pointer'
 		},
 		toggleIcon: {
-			color: dark ? '#242136' : '#58c5c2',
+			color: dark ? '#242136' : '#179a6b',
 			fontSize: '1.75em',
 			'&:focus': {
 				outline: 'none'
