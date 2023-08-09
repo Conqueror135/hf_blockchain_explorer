@@ -22,7 +22,8 @@
 	"channels": {
 		"seekorigin": {
 			"peers": {
-				"peer1.Thinklabs.com.vn": {}
+				"peer1.Thinklabs.com.vn": {},
+				"peer2.Thinklabs.com.vn": {}
 			},
 			"connection": {
 				"timeout": {
@@ -39,20 +40,26 @@
 		"Thinklabs": {
 			"mspid": "Thinklabs",
 			"adminPrivateKey": {
-				"path": "/home/conqueror/Documents/traceability/traceability-api/network/organizations/peerOrganizations/thinklabs.com.vn/users/admin/msp/keystore/key.pem"
+				"path": "/home/fabric/traceability/traceability-api/network/organizations/peerOrganizations/thinklabs.com.vn/users/admin/msp/keystore/key.pem"
 			},
-			"peers": ["peer1.Thinklabs.com.vn"],
+			"peers": ["peer1.Thinklabs.com.vn", "peer2.Thinklabs.com.vn"],
 			"signedCert": {
-				"path": "/home/conqueror/Documents/traceability/traceability-api/network/organizations/peerOrganizations/thinklabs.com.vn/users/admin/msp/signcerts/cert.pem"
+				"path": "/home/fabric/traceability/traceability-api/network/organizations/peerOrganizations/thinklabs.com.vn/users/admin/msp/signcerts/cert.pem"
 			}
 		}
 	},
 	"peers": {
 		"peer1.Thinklabs.com.vn": {
 			"tlsCACerts": {
-				"path": "/home/conqueror/Documents/traceability/traceability-api/network/organizations/peerOrganizations/thinklabs.com.vn/users/admin/msp/tlscacerts/ca-cert.pem"
+				"path": "/home/fabric/traceability/traceability-api/network/organizations/peerOrganizations/thinklabs.com.vn/users/admin/msp/tlscacerts/ca-cert.pem"
 			},
-			"url": "grpcs://localhost:6666"
+			"url": "grpcs://192.168.1.221:6666"
+		},
+		"peer2.Thinklabs.com.vn": {
+			"tlsCACerts": {
+				"path": "/home/fabric/traceability/traceability-api/network/organizations/peerOrganizations/thinklabs.com.vn/users/admin/msp/tlscacerts/ca-cert.pem"
+			},
+			"url": "grpcs://192.168.1.155:6666"
 		}
 	}
 }
