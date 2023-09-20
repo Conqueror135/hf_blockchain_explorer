@@ -586,7 +586,7 @@ export class HeaderView extends Component {
 											<Badge badgeContent={notifyCount} color="primary" />
 										</div>
 									</Form>
-									<Form inline>
+									{/* <Form inline>
 										<Dropdown
 											isOpen={dropdownOpen}
 											toggle={() => this.setState({ dropdownOpen: !dropdownOpen })}
@@ -623,7 +623,7 @@ export class HeaderView extends Component {
 												</DropdownItem>
 											</DropdownMenu>
 										</Dropdown>
-									</Form>
+									</Form> */}
 								</Nav>
 							</Collapse>
 						</Navbar>

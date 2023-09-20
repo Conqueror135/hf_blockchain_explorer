@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
-import Logo from '../../static/images/Explorer_Logo.svg';
+import Logo from '../../static/images/Logo.svg';
 import { chartOperations, chartSelectors } from '../../state/redux/charts';
 import { tableOperations, tableSelectors } from '../../state/redux/tables';
 import { authOperations } from '../../state/redux/auth';
@@ -187,7 +187,7 @@ export class LandingPage extends Component {
 		return (
 			<div className={classes.background}>
 				<div className={classes.content}>
-					<img src={Logo} style={logoStyle} alt="Hyperledger Logo" />
+					<img src={Logo} style={logoStyle} alt="Traceability Logo" />
 					<Slider {...settings}>
 						<div>
 							<h3>ACCESSING THE NETWORK</h3>
