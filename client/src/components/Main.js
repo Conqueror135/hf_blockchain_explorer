@@ -237,6 +237,17 @@ export const Main = props => {
 							/>
 						)}
 					/>
+					<Private
+						exact
+						path="/transactions/:channelId/:transId"
+						render={routeprops => (
+							<TransactionsView
+								{...{ ...transactionsViewProps, ...routeprops }}
+								transactionId={transactionId}
+								removeTransactionId={removeTransactionId}
+							/>
+						)}
+					/>
 					<Route exact render={routeprops => <PageNotFound {...routeprops} />} />
 				</Switch>
 			</div>
@@ -283,7 +294,9 @@ const connectedComponent = connect(
 		blockRangeLoaded: blockRangeLoadedSelector(state),
 		transactionListSearch: transactionListSearchSelector(state),
 		transactionListTotalPages: transactionListTotalPagesSelector(state),
-		transactionListSearchTotalPages: transactionListSearchTotalPagesSelector(state),
+		transactionListSearchTotalPages: transactionListSearchTotalPagesSelector(
+			state
+		),
 		transactionListSearchPageParam: transactionListSearchPageParamSelector(state),
 		transactionListSearchQuery: transactionListSearchQuerySelector(state),
 		blockActivity: blockActivitySelector(state)
@@ -294,7 +307,7 @@ const connectedComponent = connect(
 		getBlockRangeSearch: tableOperations.blockRangeSearch,
 		getTransactionListSearch: tableOperations.transactionListSearch,
 		getTxnList: tableOperations.txnList,
-		getChaincodeMetaData: tableOperations.chaincodeMetaData,
+		getChaincodeMetaData: tableOperations.chaincodeMetaData
 	}
 )(Main);
 export default withStyles(styles)(connectedComponent);

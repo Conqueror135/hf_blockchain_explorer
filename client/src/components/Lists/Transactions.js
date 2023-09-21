@@ -13,6 +13,7 @@ import TransactionView from '../View/TransactionView';
 import DatePicker from '../Styled/DatePicker';
 import MultiSelect from '../Styled/MultiSelect';
 import { TablePagination } from '@mui/material';
+import { withRouter } from 'react-router-dom';
 
 import {
 	currentChannelType,
@@ -100,6 +101,7 @@ export class Transactions extends Component {
 		super(props);
 		this.state = {
 			dialogOpen: false,
+			dialogTranOpen: false,
 			search: false,
 			to: moment(),
 			orgs: [],
@@ -117,10 +119,11 @@ export class Transactions extends Component {
 			queryFlag: false,
 			defaultQuery: true
 		};
+		this.handleTransDialogOpen = this.handleTransDialogOpen.bind(this);
 	}
 
 	componentDidMount() {
-		const { getTransaction } = this.props;
+		const { getTransaction, match } = this.props;
 		if (this.props.transactionId) {
 			getTransaction('ChannelNotSpecified', this.props.transactionId);
 			this.setState({ directLinkSearchResultsFlag: true });
@@ -136,6 +139,15 @@ export class Transactions extends Component {
 		});
 		this.setState({ selection, options: opts, defaultQuery: true });
 		this.handleSearch();
+
+		const { channelId, transId } = match.params;
+		console.log('match.params ', match.params);
+		console.log('channelId channelId ', channelId);
+		console.log('transId transId ', transId);
+		if (channelId && transId) {
+			console.log('showwwww');
+			this.handleTransDialogOpen(channelId, transId);
+		}
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -205,8 +217,24 @@ export class Transactions extends Component {
 	};
 
 	handleDialogOpen = async tid => {
+		console.log('hjdfhdsjfh jsdhgfjhdshfj jdshfjdshfjs jhdfjsdh ');
 		const { currentChannel, getTransaction } = this.props;
-		await getTransaction(currentChannel, tid);
+		console.log('tid tid ', tid);
+		await getTransaction(
+			'bd37ae44e2fbad282a12766522579d3fcecd8f0034a0d413f359a0ddaff9bae8',
+			tid
+		);
+		this.setState({ dialogOpen: true });
+		if (this.props.transactionId) {
+			this.setState({ directLinkDialogDoneFlag: true });
+		}
+	};
+	handleTransDialogOpen = async (cid, tid) => {
+		console.log('hjdfhdsjfh jsdhgfjhdshfj j99999999999999 ');
+		const { getTransaction } = this.props;
+		console.log('cidcidcid ', cid);
+		console.log('tid tid ', tid);
+		await getTransaction(cid, tid);
 		this.setState({ dialogOpen: true });
 		if (this.props.transactionId) {
 			this.setState({ directLinkDialogDoneFlag: true });
@@ -548,4 +576,4 @@ Transactions.defaultProps = {
 	transaction: null
 };
 
-export default withStyles(styles)(Transactions);
+export default withRouter(withStyles(styles)(Transactions));
